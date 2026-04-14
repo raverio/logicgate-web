@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LogicGate.pro — AI-Powered Technology Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--black:#040508;--navy:#080D1A;--dark:#0C1220;--panel:#111827;
+--gold:#C8A951;--gold-light:#E4C97A;--gold-dim:#7A6330;
+--blue:#1B4FBB;--blue-light:#3B7BEF;--cyan:#00D4FF;
+--white:#F0F4FF;--muted:#7A8BAA;
+--glass-bg:rgba(255,255,255,0.03);
+--glass-border:rgba(200,169,81,0.15);
+--glass-hover:rgba(255,255,255,0.06);
+--font-display:'Syne',sans-serif;
+--font-mono:'DM Mono',monospace;
+--font-body:'Outfit',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .2s,height .2s;mix-blend-mode:screen}
+.cursor-ring{width:36px;height:36px;border:1px solid rgba(200,169,81,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .15s ease-out,width .3s,height .3s}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.4}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(200,169,81,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,81,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(4,5,8,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,169,81,0.08)}
+.nav-logo{font-family:var(--font-display);font-weight:800;font-size:1.3rem;letter-spacing:-0.02em;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-logo span{-webkit-text-fill-color:var(--muted);font-weight:400}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.08em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{color:var(--black)!important;-webkit-text-fill-color:var(--black)!important;background:var(--gold);padding:8px 20px;border-radius:4px}
+.nav-cta:hover{background:var(--gold-light)!important}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:140px 40px 80px;position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.hero-tag{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:6px 14px;border-radius:2px;margin-bottom:32px;display:inline-block;animation:fadeUp .8s ease both}
+.hero h1{font-family:var(--font-display);font-size:clamp(3rem,8vw,7rem);font-weight:800;line-height:0.95;letter-spacing:-0.03em;margin-bottom:28px;animation:fadeUp .8s .1s ease both}
+.line-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.line-dim{color:rgba(240,244,255,0.25)}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:48px;animation:fadeUp .8s .2s ease both}
+.hero-sub strong{color:var(--white);font-weight:500}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
+.btn-primary{font-family:var(--font-mono);font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black);padding:14px 32px;border:none;border-radius:4px;cursor:none;text-decoration:none;font-weight:500;transition:transform .2s,box-shadow .2s;display:inline-block}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,169,81,0.3)}
+.btn-secondary{font-family:var(--font-mono);font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;background:transparent;color:var(--white);padding:14px 32px;border:1px solid rgba(240,244,255,0.15);border-radius:4px;cursor:none;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:48px;margin-top:80px;animation:fadeUp .8s .4s ease both;border-top:1px solid rgba(200,169,81,0.1);padding-top:40px;width:100%}
+.stat-num{font-family:var(--font-display);font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.stat-label{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-top:6px}
+section{position:relative;z-index:2;padding:100px 40px;max-width:1200px;margin:0 auto}
+.section-tag{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:block}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:16px}
+.section-sub{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:60px}
+.glass{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;backdrop-filter:blur(20px);transition:background .3s,border-color .3s,transform .3s}
+.glass:hover{background:var(--glass-hover);border-color:rgba(200,169,81,0.3);transform:translateY(-4px)}
+.bento-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.bento-card-1{grid-column:span 7;grid-row:span 2;padding:48px;min-height:380px;position:relative;overflow:hidden}
+.bento-card-2{grid-column:span 5;padding:40px;min-height:180px}
+.bento-card-3{grid-column:span 5;padding:40px;min-height:180px}
+.bento-card-4{grid-column:span 12;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.card-number{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:20px;display:block}
+.card-icon{font-size:2.5rem;margin-bottom:20px;display:block;line-height:1}
+.card-title{font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:14px;line-height:1.2}
+.card-desc{font-size:0.9rem;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.card-features{list-style:none;margin-bottom:28px}
+.card-features li{font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);padding:6px 0;border-bottom:1px solid rgba(200,169,81,0.06);display:flex;align-items:center;gap:10px}
+.card-features li::before{content:'→';color:var(--gold);font-size:0.7rem}
+.card-investment{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+.card-price{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--gold-light)}
+.bento-card-1::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(200,169,81,0.08),transparent 70%);border-radius:50%;pointer-events:none}
+.iv-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,169,81,0.08);border:1px solid var(--gold-dim);border-radius:4px;padding:6px 14px;margin-bottom:24px}
+.iv-badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+.iv-badge-text{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase}
+.iv-title{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.1}
+.iv-desc{font-size:0.95rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.iv-disclaimer{font-family:var(--font-mono);font-size:0.7rem;color:var(--gold-dim);letter-spacing:0.06em;line-height:1.6;border-left:2px solid var(--gold-dim);padding-left:16px;margin-top:24px}
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.module-item{background:rgba(200,169,81,0.04);border:1px solid rgba(200,169,81,0.1);border-radius:8px;padding:16px;transition:background .2s,border-color .2s}
+.module-item:hover{background:rgba(200,169,81,0.08);border-color:rgba(200,169,81,0.25)}
+.module-name{font-family:var(--font-mono);font-size:0.7rem;color:var(--gold);letter-spacing:0.06em;margin-bottom:4px;text-transform:uppercase}
+.module-cap{font-size:0.78rem;color:var(--muted);line-height:1.5}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.why-card{padding:36px}
+.why-icon{font-size:1.8rem;margin-bottom:16px;display:block}
+.why-title{font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:10px;letter-spacing:-0.01em}
+.why-desc{font-size:0.88rem;color:var(--muted);line-height:1.7}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),var(--gold-dim),transparent);z-index:0}
+.process-step{text-align:center;padding:0 20px;position:relative;z-index:1}
+.step-num{width:56px;height:56px;background:var(--dark);border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--font-display);font-size:1.1rem;font-weight:800;color:var(--gold)}
+.step-title{font-family:var(--font-display);font-size:0.95rem;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
+.step-desc{font-size:0.8rem;color:var(--muted);line-height:1.6}
+.contact-section{background:linear-gradient(135deg,rgba(200,169,81,0.04),rgba(59,123,239,0.04));border:1px solid rgba(200,169,81,0.12);border-radius:16px;padding:80px 60px;text-align:center;position:relative;overflow:hidden}
+.contact-section::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(200,169,81,0.06),transparent 70%);border-radius:50%;pointer-events:none}
+.contact-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:16px}
+.contact-sub{font-size:1rem;color:var(--muted);margin-bottom:48px;line-height:1.7}
+.contact-cards{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:48px}
+.contact-card{background:rgba(255,255,255,0.03);border:1px solid rgba(200,169,81,0.15);border-radius:10px;padding:24px 32px;text-align:center;min-width:180px}
+.contact-card-label{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;display:block}
+.contact-card-value{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--white)}
+.disclaimer-box{font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);letter-spacing:0.04em;line-height:1.7;border:1px solid rgba(200,169,81,0.08);border-radius:6px;padding:16px 24px;display:inline-block;max-width:600px}
+footer{position:relative;z-index:2;border-top:1px solid rgba(200,169,81,0.08);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+.footer-logo{font-family:var(--font-display);font-weight:800;font-size:1rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-copy{font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.footer-disc{font-family:var(--font-mono);font-size:0.6rem;color:rgba(122,139,170,0.5);letter-spacing:0.04em}
+.gold-line{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);position:relative;z-index:2}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+@media(max-width:768px){
+nav{padding:16px 20px}.nav-links{display:none}
+.hero{padding:120px 20px 60px}
+.hero-stats{gap:28px;flex-wrap:wrap}
+section{padding:60px 20px}
+.bento-grid{grid-template-columns:1fr}
+.bento-card-1,.bento-card-2,.bento-card-3,.bento-card-4{grid-column:span 1}
+.bento-card-4{grid-template-columns:1fr}
+.bento-card-1{min-height:auto}
+.module-grid{grid-template-columns:repeat(2,1fr)}
+.why-grid{grid-template-columns:1fr}
+.process-steps{grid-template-columns:repeat(2,1fr);gap:32px}
+.process-steps::before{display:none}
+.contact-section{padding:48px 24px}
+footer{flex-direction:column;gap:12px;text-align:center}
+body{cursor:auto}.cursor,.cursor-ring{display:none}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav>
+  <div class="nav-logo">Logic<span>Gate</span>.pro</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#iron-vantage">Iron Vantage</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+<section class="hero" style="max-width:100%;padding-left:max(40px,calc((100vw - 1200px)/2 + 40px));padding-right:max(40px,calc((100vw - 1200px)/2 + 40px))">
+  <span class="hero-tag">AI-Powered Technology Solutions</span>
+  <h1><span class="line-gold">Engineer</span><br><span>Your Edge.</span><br><span class="line-dim">Automate</span><br><span class="line-dim">Everything.</span></h1>
+  <p class="hero-sub">LogicGate builds <strong>production-grade automated systems</strong> for serious traders and businesses. We don't sell shortcuts — we engineer infrastructure that works.</p>
+  <div class="hero-actions">
+    <a href="#services" class="btn-primary">Explore Services</a>
+    <a href="#contact" class="btn-secondary">Start a Project</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">Modules Built</div></div>
+    <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">Broker APIs</div></div>
+    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Custom Built</div></div>
+    <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Signal Promises</div></div>
+  </div>
+</section>
+<div class="gold-line"></div>
+<section id="services">
+  <span class="section-tag">// What We Build</span>
+  <h2 class="section-title">Services Engineered<br>For Serious Traders</h2>
+  <p class="section-sub">Every system is built to your exact specifications. Your strategy. Your broker. Your rules. Our engineering.</p>
+  <div class="bento-grid">
+    <div class="glass bento-card-1 fade-in">
+      <span class="card-number">// 01</span>
+      <span class="card-icon">⚡</span>
+      <h3 class="card-title">Broker API Integration &amp; WebSocket Development</h3>
+      <p class="card-desc">We connect your trading logic to any Indian broker API — Angel One, Zerodha, Fyers, Upstox and more — with production-grade WebSocket real-time data infrastructure. Auto-reconnect, dynamic token management, live tick routing. Built to run 24/7 without intervention.</p>
+      <ul class="card-features">
+        <li>Real-time WebSocket tick data with auto-reconnect</li>
+        <li>Dynamic token fetching &amp; multi-instrument routing</li>
+        <li>Automated order execution framework</li>
+        <li>Angel One, Zerodha, Fyers, Upstox supported</li>
+      </ul>
+      <div class="card-investment">Investment Range</div>
+      <div class="card-price">₹8,000 — ₹20,000</div>
+    </div>
+    <div class="glass bento-card-2 fade-in">
+      <span class="card-number">// 02</span>
+      <span class="card-icon">🏗️</span>
+      <h3 class="card-title">Custom Trading System Development</h3>
+      <p class="card-desc">A complete multi-module algorithmic trading system built around your strategy — with live terminal dashboard, signal logic, and full documentation.</p>
+      <ul class="card-features">
+        <li>Multi-module production architecture</li>
+        <li>Live terminal dashboard</li>
+        <li>Complete documentation &amp; 2-week support</li>
+      </ul>
+      <div class="card-investment">Investment Range</div>
+      <div class="card-price">₹25,000 — ₹80,000</div>
+    </div>
+    <div class="glass bento-card-3 fade-in">
+      <span class="card-number">// 03</span>
+      <span class="card-icon">📊</span>
+      <h3 class="card-title">Trade Log Analysis &amp; AI Reporting</h3>
+      <p class="card-desc">Automated tool that reads your trade logs, runs AI pattern analysis, and generates weekly performance reports. Identify mistakes before they compound.</p>
+      <ul class="card-features">
+        <li>AI-powered pattern recognition</li>
+        <li>Weekly PDF performance reports</li>
+        <li>Monthly retainer available</li>
+      </ul>
+      <div class="card-investment">Investment Range</div>
+      <div class="card-price">₹8,000 — ₹15,000</div>
+    </div>
+  </div>
+</section>
+<div class="gold-line"></div>
+<section id="iron-vantage">
+  <div class="glass bento-card-4 fade-in" style="border-radius:12px">
+    <div>
+      <div class="iv-badge"><div class="iv-badge-dot"></div><span class="iv-badge-text">Our Engineering Benchmark</span></div>
+      <h2 class="iv-title">Iron Vantage —<br>Built By Us.<br>To Prove What We Can<br>Build For You.</h2>
+      <p class="iv-desc">Iron Vantage is our internally developed 12-module market analysis system. Built on Angel One Smart API with real-time WebSocket tick data — processing FRVP, CVD, Absorption, Options Intelligence and Regime Detection simultaneously.</p>
+      <p class="iv-desc">We do not sell it. We use it as proof of what VantageForge Systems can engineer for serious traders.</p>
+      <div class="iv-disclaimer">Iron Vantage is our internal engineering benchmark only.<br>We make no signal accuracy claims or profit promises.<br>All systems we build are pure engineering services.</div>
+    </div>
+    <div class="module-grid">
+      <div class="module-item"><div class="module-name">WebSocket</div><div class="module-cap">Real-time tick data, auto-reconnect</div></div>
+      <div class="module-item"><div class="module-name">FRVP Engine</div><div class="module-cap">5D rolling volume profile</div></div>
+      <div class="module-item"><div class="module-name">CVD Engine</div><div class="module-cap">Cumulative delta &amp; divergence</div></div>
+      <div class="module-item"><div class="module-name">Absorption</div><div class="module-cap">Smart money detection</div></div>
+      <div class="module-item"><div class="module-name">Options Intel</div><div class="module-cap">PCR, IV, Max Pain, Walls</div></div>
+      <div class="module-item"><div class="module-name">Futures Basis</div><div class="module-cap">Institutional positioning</div></div>
+      <div class="module-item"><div class="module-name">Aggregator</div><div class="module-cap">Regime-aware conviction scoring</div></div>
+      <div class="module-item"><div class="module-name">Regime Detector</div><div class="module-cap">5-state market classifier</div></div>
+      <div class="module-item"><div class="module-name">Orchestrator</div><div class="module-cap">Full data routing &amp; sessions</div></div>
+      <div class="module-item"><div class="module-name">Token Manager</div><div class="module-cap">Dynamic multi-instrument tokens</div></div>
+      <div class="module-item"><div class="module-name">Logger</div><div class="module-cap">SQLite + CSV + AI feed pipeline</div></div>
+      <div class="module-item"><div class="module-name">Dashboard</div><div class="module-cap">Live professional terminal</div></div>
+    </div>
+  </div>
+</section>
+<div class="gold-line"></div>
+<section id="why">
+  <span class="section-tag">// Why VantageForge</span>
+  <h2 class="section-title">Engineering Over Hype.<br>Always.</h2>
+  <p class="section-sub">We operate by a strict code that protects our clients and our reputation equally.</p>
+  <div class="why-grid">
+    <div class="glass why-card fade-in"><span class="why-icon">🔒</span><h3 class="why-title">No Signal Promises</h3><p class="why-desc">We build the infrastructure. You apply your edge. We never promise returns, accuracy rates or profitable signals. Ever.</p></div>
+    <div class="glass why-card fade-in"><span class="why-icon">⚙️</span><h3 class="why-title">Production Grade Only</h3><p class="why-desc">Every system we deliver is built to production standards — error handling, logging, auto-reconnect, documentation. No hobby-grade code leaves our desk.</p></div>
+    <div class="glass why-card fade-in"><span class="why-icon">🎯</span><h3 class="why-title">100% Custom Built</h3><p class="why-desc">No templates. No copy-paste. Every system is architected from scratch around your specific strategy, broker and requirements.</p></div>
+    <div class="glass why-card fade-in"><span class="why-icon">🤝</span><h3 class="why-title">Full Transparency</h3><p class="why-desc">You see progress at every stage. We discuss architecture before writing one line of code. No surprises, no scope creep, no hidden costs.</p></div>
+  </div>
+</section>
+<div class="gold-line"></div>
+<section id="process">
+  <span class="section-tag">// How We Work</span>
+  <h2 class="section-title">From Requirement<br>To Delivery</h2>
+  <p class="section-sub" style="margin-bottom:80px">A disciplined 4-step process that eliminates surprises and delivers exactly what was agreed.</p>
+  <div class="process-steps fade-in">
+    <div class="process-step"><div class="step-num">01</div><h3 class="step-title">Discovery</h3><p class="step-desc">We understand your strategy, broker setup and exact requirements before anything else.</p></div>
+    <div class="process-step"><div class="step-num">02</div><h3 class="step-title">Architecture</h3><p class="step-desc">We design the full system structure and confirm scope before writing one line of code.</p></div>
+    <div class="process-step"><div class="step-num">03</div><h3 class="step-title">Build</h3><p class="step-desc">We develop module by module with regular progress updates throughout.</p></div>
+    <div class="process-step"><div class="step-num">04</div><h3 class="step-title">Delivery</h3><p class="step-desc">Full handover with documentation, setup guide and 2 weeks post-delivery support.</p></div>
+  </div>
+</section>
+<div class="gold-line"></div>
+<section id="contact" style="padding-bottom:40px">
+  <div class="contact-section fade-in">
+    <h2 class="contact-title">Ready to Build<br>Your System?</h2>
+    <p class="contact-sub">Tell us what you want to automate.<br>We tell you exactly how we build it and what it costs.</p>
+    <div class="contact-cards">
+      <div class="contact-card"><span class="contact-card-label">Telegram</span><div class="contact-card-value">@VantageForge</div></div>
+      <div class="contact-card"><span class="contact-card-label">Email</span><div class="contact-card-value">contact@logicgate.pro</div></div>
+      <div class="contact-card"><span class="contact-card-label">Response Time</span><div class="contact-card-value">Within 24 Hours</div></div>
+      <div class="contact-card"><span class="contact-card-label">Location</span><div class="contact-card-value">India — Remote</div></div>
+    </div>
+    <a href="https://t.me/VantageForge" class="btn-primary" style="margin-bottom:32px;display:inline-block">Message on Telegram</a><br>
+    <div class="disclaimer-box">LogicGate / VantageForge Systems provides engineering services only.<br>We do not provide financial advice, trading signals or promise returns.<br>All systems built are tools — performance depends on your strategy.</div>
+  </div>
+</section>
+<footer>
+  <div class="footer-logo">LogicGate.pro</div>
+  <div class="footer-copy">© 2026 LogicGate — VantageForge Systems</div>
+  <div class="footer-disc">Deoghar, Jharkhand, India</div>
+</footer>
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
+function animateRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateRing)}
+animateRing();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';ring.style.width='50px';ring.style.height='50px'});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';ring.style.width='36px';ring.style.height='36px'})
+});
+const observer=new IntersectionObserver(entries=>{entries.forEach((entry,i)=>{if(entry.isIntersecting)setTimeout(()=>entry.target.classList.add('visible'),i*80)})},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});
+</script>
+</body>
+</html>
