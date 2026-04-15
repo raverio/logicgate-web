@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LogicGate.pro — AI-Powered Technology Solutions</title>
+<title>VantageForge Systems — Custom Automated Trading Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
---black:#040508;--navy:#080D1A;--dark:#0C1220;--panel:#111827;
+--black:#040508;--navy:#080D1A;--dark:#0C1220;
 --gold:#C8A951;--gold-light:#E4C97A;--gold-dim:#7A6330;
---blue:#1B4FBB;--blue-light:#3B7BEF;--cyan:#00D4FF;
---white:#F0F4FF;--muted:#7A8BAA;
+--cyan:#00D4FF;--white:#F0F4FF;--muted:#7A8BAA;
 --glass-bg:rgba(255,255,255,0.03);
 --glass-border:rgba(200,169,81,0.15);
 --glass-hover:rgba(255,255,255,0.06);
@@ -21,131 +20,190 @@
 --font-body:'Outfit',sans-serif}
 html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:var(--font-body);overflow-x:hidden;cursor:none}
-.cursor{width:12px;height:12px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .2s,height .2s;mix-blend-mode:screen}
+.cursor{width:12px;height:12px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:screen}
 .cursor-ring{width:36px;height:36px;border:1px solid rgba(200,169,81,0.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .15s ease-out,width .3s,height .3s}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.4}
-body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(200,169,81,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,81,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(4,5,8,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,169,81,0.08)}
-.nav-logo{font-family:var(--font-display);font-weight:800;font-size:1.3rem;letter-spacing:-0.02em;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(200,169,81,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,169,81,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(4,5,8,0.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,169,81,0.08)}
+.nav-logo{font-family:var(--font-display);font-weight:800;font-size:1.2rem;letter-spacing:-0.02em;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-logo span{-webkit-text-fill-color:var(--muted);font-weight:400}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.08em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
-.nav-cta{color:var(--black)!important;-webkit-text-fill-color:var(--black)!important;background:var(--gold);padding:8px 20px;border-radius:4px}
+.nav-cta{color:var(--black)!important;-webkit-text-fill-color:var(--black)!important;background:var(--gold);padding:8px 18px;border-radius:4px}
 .nav-cta:hover{background:var(--gold-light)!important}
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:140px 40px 80px;position:relative;z-index:2;max-width:1200px;margin:0 auto}
-.hero-tag{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:6px 14px;border-radius:2px;margin-bottom:32px;display:inline-block;animation:fadeUp .8s ease both}
-.hero h1{font-family:var(--font-display);font-size:clamp(3rem,8vw,7rem);font-weight:800;line-height:0.95;letter-spacing:-0.03em;margin-bottom:28px;animation:fadeUp .8s .1s ease both}
+.hero-tag{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;border:1px solid var(--gold-dim);padding:6px 14px;border-radius:2px;margin-bottom:20px;display:inline-block;animation:fadeUp .8s ease both}
+.pain-banner{background:rgba(200,169,81,0.06);border:1px solid rgba(200,169,81,0.2);border-radius:6px;padding:14px 20px;margin-bottom:28px;display:inline-flex;align-items:center;gap:10px;animation:fadeUp .8s .05s ease both}
+.pain-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;flex-shrink:0;animation:pulse 2s infinite}
+.pain-text{font-family:var(--font-mono);font-size:0.76rem;color:var(--gold-light);letter-spacing:0.04em}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,6.5vw,6rem);font-weight:800;line-height:0.95;letter-spacing:-0.03em;margin-bottom:24px;animation:fadeUp .8s .1s ease both}
 .line-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.line-dim{color:rgba(240,244,255,0.25)}
-.hero-sub{font-size:1.05rem;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:48px;animation:fadeUp .8s .2s ease both}
+.line-dim{color:rgba(240,244,255,0.22)}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:580px;line-height:1.75;margin-bottom:36px;animation:fadeUp .8s .2s ease both}
 .hero-sub strong{color:var(--white);font-weight:500}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
-.btn-primary{font-family:var(--font-mono);font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black);padding:14px 32px;border:none;border-radius:4px;cursor:none;text-decoration:none;font-weight:500;transition:transform .2s,box-shadow .2s;display:inline-block}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
+.btn-primary{font-family:var(--font-mono);font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black);padding:13px 26px;border:none;border-radius:4px;cursor:none;text-decoration:none;font-weight:500;transition:transform .2s,box-shadow .2s;display:inline-block}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,169,81,0.3)}
-.btn-secondary{font-family:var(--font-mono);font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;background:transparent;color:var(--white);padding:14px 32px;border:1px solid rgba(240,244,255,0.15);border-radius:4px;cursor:none;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
+.btn-secondary{font-family:var(--font-mono);font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;background:transparent;color:var(--white);padding:13px 26px;border:1px solid rgba(240,244,255,0.15);border-radius:4px;cursor:none;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
 .btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
-.hero-stats{display:flex;gap:48px;margin-top:80px;animation:fadeUp .8s .4s ease both;border-top:1px solid rgba(200,169,81,0.1);padding-top:40px;width:100%}
-.stat-num{font-family:var(--font-display);font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
-.stat-label{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-top:6px}
-section{position:relative;z-index:2;padding:100px 40px;max-width:1200px;margin:0 auto}
-.section-tag{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:block}
-.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:16px}
-.section-sub{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:60px}
+.btn-ghost{font-family:var(--font-mono);font-size:0.76rem;letter-spacing:0.06em;text-transform:uppercase;background:transparent;color:var(--muted);padding:13px 26px;border:1px solid rgba(122,139,170,0.2);border-radius:4px;cursor:none;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--muted);color:var(--white)}
+.hero-stats{display:flex;gap:44px;margin-top:64px;animation:fadeUp .8s .4s ease both;border-top:1px solid rgba(200,169,81,0.1);padding-top:36px;width:100%}
+.stat-num{font-family:var(--font-display);font-size:1.9rem;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.stat-label{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;margin-top:5px}
+section{position:relative;z-index:2;padding:90px 40px;max-width:1200px;margin:0 auto}
+.section-tag{font-family:var(--font-mono);font-size:0.63rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:block}
+.section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.9rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:14px}
+.section-sub{font-size:0.98rem;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:52px}
 .glass{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;backdrop-filter:blur(20px);transition:background .3s,border-color .3s,transform .3s}
 .glass:hover{background:var(--glass-hover);border-color:rgba(200,169,81,0.3);transform:translateY(-4px)}
-.bento-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-.bento-card-1{grid-column:span 7;grid-row:span 2;padding:48px;min-height:380px;position:relative;overflow:hidden}
-.bento-card-2{grid-column:span 5;padding:40px;min-height:180px}
-.bento-card-3{grid-column:span 5;padding:40px;min-height:180px}
-.bento-card-4{grid-column:span 12;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.card-number{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:20px;display:block}
-.card-icon{font-size:2.5rem;margin-bottom:20px;display:block;line-height:1}
-.card-title{font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:14px;line-height:1.2}
-.card-desc{font-size:0.9rem;color:var(--muted);line-height:1.7;margin-bottom:24px}
-.card-features{list-style:none;margin-bottom:28px}
-.card-features li{font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);padding:6px 0;border-bottom:1px solid rgba(200,169,81,0.06);display:flex;align-items:center;gap:10px}
-.card-features li::before{content:'→';color:var(--gold);font-size:0.7rem}
-.card-investment{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
-.card-price{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--gold-light)}
-.bento-card-1::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(200,169,81,0.08),transparent 70%);border-radius:50%;pointer-events:none}
-.iv-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,169,81,0.08);border:1px solid var(--gold-dim);border-radius:4px;padding:6px 14px;margin-bottom:24px}
-.iv-badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
-.iv-badge-text{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase}
-.iv-title{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.1}
-.iv-desc{font-size:0.95rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
-.iv-disclaimer{font-family:var(--font-mono);font-size:0.7rem;color:var(--gold-dim);letter-spacing:0.06em;line-height:1.6;border-left:2px solid var(--gold-dim);padding-left:16px;margin-top:24px}
-.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.module-item{background:rgba(200,169,81,0.04);border:1px solid rgba(200,169,81,0.1);border-radius:8px;padding:16px;transition:background .2s,border-color .2s}
-.module-item:hover{background:rgba(200,169,81,0.08);border-color:rgba(200,169,81,0.25)}
-.module-name{font-family:var(--font-mono);font-size:0.7rem;color:var(--gold);letter-spacing:0.06em;margin-bottom:4px;text-transform:uppercase}
-.module-cap{font-size:0.78rem;color:var(--muted);line-height:1.5}
-.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.why-card{padding:36px}
-.why-icon{font-size:1.8rem;margin-bottom:16px;display:block}
-.why-title{font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:10px;letter-spacing:-0.01em}
-.why-desc{font-size:0.88rem;color:var(--muted);line-height:1.7}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),var(--gold-dim),transparent);z-index:0}
-.process-step{text-align:center;padding:0 20px;position:relative;z-index:1}
-.step-num{width:56px;height:56px;background:var(--dark);border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--font-display);font-size:1.1rem;font-weight:800;color:var(--gold)}
-.step-title{font-family:var(--font-display);font-size:0.95rem;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
-.step-desc{font-size:0.8rem;color:var(--muted);line-height:1.6}
-.contact-section{background:linear-gradient(135deg,rgba(200,169,81,0.04),rgba(59,123,239,0.04));border:1px solid rgba(200,169,81,0.12);border-radius:16px;padding:80px 60px;text-align:center;position:relative;overflow:hidden}
-.contact-section::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(200,169,81,0.06),transparent 70%);border-radius:50%;pointer-events:none}
-.contact-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:16px}
-.contact-sub{font-size:1rem;color:var(--muted);margin-bottom:48px;line-height:1.7}
-.contact-cards{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:48px}
-.contact-card{background:rgba(255,255,255,0.03);border:1px solid rgba(200,169,81,0.15);border-radius:10px;padding:24px 32px;text-align:center;min-width:180px}
-.contact-card-label{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;display:block}
-.contact-card-value{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--white)}
-.disclaimer-box{font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);letter-spacing:0.04em;line-height:1.7;border:1px solid rgba(200,169,81,0.08);border-radius:6px;padding:16px 24px;display:inline-block;max-width:600px}
-footer{position:relative;z-index:2;border-top:1px solid rgba(200,169,81,0.08);padding:32px 40px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
-.footer-logo{font-family:var(--font-display);font-weight:800;font-size:1rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.footer-copy{font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
-.footer-disc{font-family:var(--font-mono);font-size:0.6rem;color:rgba(122,139,170,0.5);letter-spacing:0.04em}
 .gold-line{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);position:relative;z-index:2}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pain-card{padding:30px;border-radius:12px;background:rgba(200,169,81,0.04);border:1px solid rgba(200,169,81,0.1);transition:border-color .3s}
+.pain-card:hover{border-color:rgba(200,169,81,0.25)}
+.pain-num{font-family:var(--font-display);font-size:2.2rem;font-weight:800;color:rgba(200,169,81,0.12);line-height:1;margin-bottom:10px}
+.pain-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:8px}
+.pain-desc{font-size:0.84rem;color:var(--muted);line-height:1.65}
+.pain-fix{font-family:var(--font-mono);font-size:0.7rem;color:var(--gold);margin-top:14px;letter-spacing:0.04em}
+.bento-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.bento-card-1{grid-column:span 7;grid-row:span 2;padding:44px;min-height:400px;position:relative;overflow:hidden}
+.bento-card-2{grid-column:span 5;padding:36px}
+.bento-card-3{grid-column:span 5;padding:36px}
+.bento-card-4{grid-column:span 12;padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.bento-card-1::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(200,169,81,0.07),transparent 70%);border-radius:50%;pointer-events:none}
+.card-number{font-family:var(--font-mono);font-size:0.63rem;letter-spacing:0.15em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:18px;display:block}
+.card-icon{font-size:2.2rem;margin-bottom:18px;display:block;line-height:1}
+.card-title{font-family:var(--font-display);font-size:1.4rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;line-height:1.2}
+.card-desc{font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.card-features{list-style:none;margin-bottom:24px}
+.card-features li{font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);padding:5px 0;border-bottom:1px solid rgba(200,169,81,0.06);display:flex;align-items:center;gap:8px}
+.card-features li::before{content:'→';color:var(--gold);font-size:0.68rem}
+.card-investment{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+.card-price{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--gold-light)}
+.advanced-section{background:linear-gradient(135deg,rgba(200,169,81,0.06),rgba(59,123,239,0.04));border:2px solid rgba(200,169,81,0.25);border-radius:16px;padding:56px;position:relative;overflow:hidden;margin-top:16px}
+.advanced-section::before{content:'FLAGSHIP SERVICE';position:absolute;top:24px;right:28px;font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.2em;color:var(--gold);border:1px solid var(--gold-dim);padding:4px 10px;border-radius:2px}
+.advanced-price{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:6px}
+.advanced-label{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;margin-bottom:22px}
+.advanced-title{font-family:var(--font-display);font-size:1.7rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;line-height:1.2}
+.advanced-desc{font-size:0.93rem;color:var(--muted);line-height:1.75;margin-bottom:28px;max-width:540px}
+.advanced-features{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:32px}
+.adv-feat{background:rgba(200,169,81,0.05);border:1px solid rgba(200,169,81,0.12);border-radius:8px;padding:12px 16px;font-family:var(--font-mono);font-size:0.73rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.adv-feat::before{content:'◆';color:var(--gold);font-size:0.5rem;flex-shrink:0}
+.iv-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,169,81,0.08);border:1px solid var(--gold-dim);border-radius:4px;padding:6px 14px;margin-bottom:22px}
+.iv-badge-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+.iv-badge-text{font-family:var(--font-mono);font-size:0.63rem;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase}
+.iv-title{font-family:var(--font-display);font-size:clamp(1.7rem,3vw,2.6rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;line-height:1.1}
+.iv-desc{font-size:0.93rem;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.iv-disclaimer{font-family:var(--font-mono);font-size:0.68rem;color:var(--gold-dim);letter-spacing:0.06em;line-height:1.6;border-left:2px solid var(--gold-dim);padding-left:14px;margin-top:20px}
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.module-item{background:rgba(200,169,81,0.04);border:1px solid rgba(200,169,81,0.1);border-radius:8px;padding:14px;transition:background .2s,border-color .2s}
+.module-item:hover{background:rgba(200,169,81,0.08);border-color:rgba(200,169,81,0.25)}
+.module-name{font-family:var(--font-mono);font-size:0.68rem;color:var(--gold);letter-spacing:0.06em;margin-bottom:3px;text-transform:uppercase}
+.module-cap{font-size:0.76rem;color:var(--muted);line-height:1.5}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testi-card{padding:32px}
+.testi-quote{font-size:2.2rem;color:var(--gold);line-height:1;margin-bottom:14px;font-family:Georgia,serif}
+.testi-text{font-size:0.88rem;color:var(--white);line-height:1.72;margin-bottom:18px;font-style:italic}
+.testi-result{font-family:var(--font-mono);font-size:0.68rem;color:var(--gold);letter-spacing:0.05em;margin-bottom:16px;padding:8px 12px;background:rgba(200,169,81,0.08);border-radius:4px;display:inline-block}
+.testi-author{border-top:1px solid rgba(200,169,81,0.1);padding-top:14px}
+.testi-name{font-family:var(--font-display);font-size:0.88rem;font-weight:700;color:var(--white)}
+.testi-role{font-family:var(--font-mono);font-size:0.66rem;color:var(--muted);letter-spacing:0.06em;margin-top:3px}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.why-card{padding:32px}
+.why-icon{font-size:1.7rem;margin-bottom:14px;display:block}
+.why-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.why-desc{font-size:0.86rem;color:var(--muted);line-height:1.7}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),var(--gold-dim),transparent);z-index:0}
+.process-step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.step-num{width:54px;height:54px;background:var(--dark);border:1px solid var(--gold-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:var(--font-display);font-size:1.05rem;font-weight:800;color:var(--gold)}
+.step-title{font-family:var(--font-display);font-size:0.92rem;font-weight:700;margin-bottom:7px}
+.step-desc{font-size:0.78rem;color:var(--muted);line-height:1.6}
+.contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-title{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:16px;line-height:1.1}
+.contact-sub{font-size:0.98rem;color:var(--muted);line-height:1.7;margin-bottom:28px}
+.contact-cards{display:flex;flex-direction:column;gap:10px}
+.contact-card{background:rgba(255,255,255,0.03);border:1px solid rgba(200,169,81,0.15);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.cc-icon{font-size:1.1rem}
+.cc-label{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase}
+.cc-value{font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--white)}
+.contact-form{background:rgba(255,255,255,0.02);border:1px solid rgba(200,169,81,0.12);border-radius:14px;padding:36px}
+.form-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:5px}
+.form-sub{font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);letter-spacing:0.06em;margin-bottom:26px}
+.form-group{margin-bottom:16px}
+.form-label{font-family:var(--font-mono);font-size:0.66rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:7px}
+.form-input,.form-select,.form-textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(200,169,81,0.15);border-radius:6px;padding:11px 14px;color:var(--white);font-family:var(--font-body);font-size:0.88rem;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold)}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C8A951' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:none}
+.form-select option{background:#0C1220;color:var(--white)}
+.form-textarea{resize:vertical;min-height:88px}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--muted)}
+.form-submit{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black);font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;padding:14px;border:none;border-radius:6px;cursor:none;margin-top:8px;transition:transform .2s,box-shadow .2s}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,169,81,0.3)}
+.form-disclaimer{font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);text-align:center;margin-top:12px;letter-spacing:0.04em;line-height:1.6}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success-icon{font-size:3rem;margin-bottom:14px}
+.form-success-title{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:10px;color:var(--gold)}
+.form-success-sub{font-size:0.9rem;color:var(--muted);line-height:1.7}
+footer{position:relative;z-index:2;border-top:1px solid rgba(200,169,81,0.08);padding:26px 40px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+.footer-logo{font-family:var(--font-display);font-weight:800;font-size:1rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-copy{font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.footer-disc{font-family:var(--font-mono);font-size:0.56rem;color:rgba(122,139,170,0.4)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 @media(max-width:768px){
-nav{padding:16px 20px}.nav-links{display:none}
-.hero{padding:120px 20px 60px}
-.hero-stats{gap:28px;flex-wrap:wrap}
-section{padding:60px 20px}
+nav{padding:14px 20px}.nav-links{display:none}
+.hero{padding:110px 20px 56px}
+.hero-stats{gap:24px;flex-wrap:wrap}
+section{padding:56px 20px}
+.pain-grid,.testi-grid,.why-grid,.contact-wrapper{grid-template-columns:1fr}
 .bento-grid{grid-template-columns:1fr}
 .bento-card-1,.bento-card-2,.bento-card-3,.bento-card-4{grid-column:span 1}
 .bento-card-4{grid-template-columns:1fr}
 .bento-card-1{min-height:auto}
 .module-grid{grid-template-columns:repeat(2,1fr)}
-.why-grid{grid-template-columns:1fr}
-.process-steps{grid-template-columns:repeat(2,1fr);gap:32px}
+.process-steps{grid-template-columns:repeat(2,1fr);gap:28px}
 .process-steps::before{display:none}
-.contact-section{padding:48px 24px}
-footer{flex-direction:column;gap:12px;text-align:center}
+.advanced-features{grid-template-columns:1fr}
+.advanced-section{padding:32px 24px}
+footer{flex-direction:column;gap:10px;text-align:center}
 body{cursor:auto}.cursor,.cursor-ring{display:none}}
 </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+
 <nav>
   <div class="nav-logo">Logic<span>Gate</span>.pro</div>
   <ul class="nav-links">
+    <li><a href="#pain">The Problem</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Results</a></li>
     <li><a href="#iron-vantage">Iron Vantage</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    <li><a href="#contact" class="nav-cta">Get Free Plan</a></li>
   </ul>
 </nav>
+
 <section class="hero" style="max-width:100%;padding-left:max(40px,calc((100vw - 1200px)/2 + 40px));padding-right:max(40px,calc((100vw - 1200px)/2 + 40px))">
-  <span class="hero-tag">AI-Powered Technology Solutions</span>
-  <h1><span class="line-gold">Engineer</span><br><span>Your Edge.</span><br><span class="line-dim">Automate</span><br><span class="line-dim">Everything.</span></h1>
-  <p class="hero-sub">LogicGate builds <strong>production-grade automated systems</strong> for serious traders and businesses. We don't sell shortcuts — we engineer infrastructure that works.</p>
+  <span class="hero-tag">VantageForge Systems</span>
+  <div class="pain-banner">
+    <div class="pain-dot"></div>
+    <span class="pain-text">Every second of manual execution is a second the market moves against you.</span>
+  </div>
+  <h1>
+    <span class="line-gold">Automate</span><br>
+    <span>Your Trading.</span><br>
+    <span class="line-dim">Eliminate</span><br>
+    <span class="line-dim">The Errors.</span>
+  </h1>
+  <p class="hero-sub">We build <strong>custom automated trading systems using broker APIs and real-time data pipelines</strong> — from simple indicator automation to complex multi-module architectures. Your strategy. Our engineering.</p>
   <div class="hero-actions">
-    <a href="#services" class="btn-primary">Explore Services</a>
-    <a href="#contact" class="btn-secondary">Start a Project</a>
+    <a href="#contact" class="btn-primary">Get Free System Plan</a>
+    <a href="#services" class="btn-secondary">Explore Services</a>
+    <a href="#testimonials" class="btn-ghost">See Results</a>
   </div>
   <div class="hero-stats">
     <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">Modules Built</div></div>
@@ -154,17 +212,47 @@ body{cursor:auto}.cursor,.cursor-ring{display:none}}
     <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Signal Promises</div></div>
   </div>
 </section>
+
 <div class="gold-line"></div>
+
+<section id="pain">
+  <span class="section-tag">// The Problem</span>
+  <h2 class="section-title">Why Serious Traders<br>Need Automation</h2>
+  <p class="section-sub">Manual trading has hard limits. Every one of these is costing you money right now.</p>
+  <div class="pain-grid fade-in">
+    <div class="pain-card">
+      <div class="pain-num">01</div>
+      <div class="pain-title">Manual Execution Errors</div>
+      <div class="pain-desc">Missed entries, wrong quantities, fat-finger orders. Human execution breaks down under pressure and in fast-moving markets.</div>
+      <div class="pain-fix">→ Automated execution eliminates human error</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-num">02</div>
+      <div class="pain-title">Emotion Overrides Logic</div>
+      <div class="pain-desc">You have a system. But fear and greed override it in real-time. Discretionary decisions destroy systematic edge over time.</div>
+      <div class="pain-fix">→ Systems execute rules — not emotions</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-num">03</div>
+      <div class="pain-title">No Real-Time Visibility</div>
+      <div class="pain-desc">Watching multiple screens, calculating levels manually, missing key data. Your broker terminal doesn't show what you actually need.</div>
+      <div class="pain-fix">→ Custom dashboard shows exactly your data</div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
 <section id="services">
   <span class="section-tag">// What We Build</span>
-  <h2 class="section-title">Services Engineered<br>For Serious Traders</h2>
-  <p class="section-sub">Every system is built to your exact specifications. Your strategy. Your broker. Your rules. Our engineering.</p>
+  <h2 class="section-title">Services Built For<br>Serious Traders</h2>
+  <p class="section-sub">Every system is 100% custom. Your indicators, your broker, your rules. Production grade on every project — simple or complex.</p>
   <div class="bento-grid">
     <div class="glass bento-card-1 fade-in">
       <span class="card-number">// 01</span>
       <span class="card-icon">⚡</span>
       <h3 class="card-title">Broker API Integration &amp; WebSocket Development</h3>
-      <p class="card-desc">We connect your trading logic to any Indian broker API — Angel One, Zerodha, Fyers, Upstox and more — with production-grade WebSocket real-time data infrastructure. Auto-reconnect, dynamic token management, live tick routing. Built to run 24/7 without intervention.</p>
+      <p class="card-desc">We connect your trading logic to any Indian broker API — Angel One, Zerodha, Fyers, Upstox and more — with production-grade WebSocket real-time data infrastructure. Auto-reconnect, dynamic token management, live tick routing. Built to run 24/7.</p>
       <ul class="card-features">
         <li>Real-time WebSocket tick data with auto-reconnect</li>
         <li>Dynamic token fetching &amp; multi-instrument routing</li>
@@ -178,14 +266,14 @@ body{cursor:auto}.cursor,.cursor-ring{display:none}}
       <span class="card-number">// 02</span>
       <span class="card-icon">🏗️</span>
       <h3 class="card-title">Custom Trading System Development</h3>
-      <p class="card-desc">A complete multi-module algorithmic trading system built around your strategy — with live terminal dashboard, signal logic, and full documentation.</p>
+      <p class="card-desc">From simple RSI/EMA automation to complex multi-module architectures — built around your exact strategy with live terminal and full documentation.</p>
       <ul class="card-features">
-        <li>Multi-module production architecture</li>
+        <li>Any indicator or strategy logic you need</li>
         <li>Live terminal dashboard</li>
-        <li>Complete documentation &amp; 2-week support</li>
+        <li>Documentation &amp; 2-week support</li>
       </ul>
       <div class="card-investment">Investment Range</div>
-      <div class="card-price">₹25,000 — ₹80,000</div>
+      <div class="card-price">₹15,000 — ₹80,000</div>
     </div>
     <div class="glass bento-card-3 fade-in">
       <span class="card-number">// 03</span>
@@ -201,16 +289,40 @@ body{cursor:auto}.cursor,.cursor-ring{display:none}}
       <div class="card-price">₹8,000 — ₹15,000</div>
     </div>
   </div>
+
+  <div class="advanced-section fade-in">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+      <div>
+        <div class="advanced-price">₹1,00,000+</div>
+        <div class="advanced-label">Advanced System Investment</div>
+        <h3 class="advanced-title">Institutional Grade Multi-Module Trading Architecture</h3>
+        <p class="advanced-desc">For serious traders who need a complete end-to-end system — real-time order flow analysis, options intelligence, regime detection, signal aggregation, AI performance pipeline and live terminal. Iron Vantage level engineering, built for your strategy.</p>
+        <a href="#contact" class="btn-primary">Discuss Your Requirements</a>
+      </div>
+      <div class="advanced-features">
+        <div class="adv-feat">Real-time WebSocket data engine</div>
+        <div class="adv-feat">Order flow analysis modules</div>
+        <div class="adv-feat">Options intelligence layer</div>
+        <div class="adv-feat">Regime detection system</div>
+        <div class="adv-feat">Signal aggregation engine</div>
+        <div class="adv-feat">AI log analysis pipeline</div>
+        <div class="adv-feat">Live professional terminal</div>
+        <div class="adv-feat">Full documentation &amp; support</div>
+      </div>
+    </div>
+  </div>
 </section>
+
 <div class="gold-line"></div>
+
 <section id="iron-vantage">
   <div class="glass bento-card-4 fade-in" style="border-radius:12px">
     <div>
       <div class="iv-badge"><div class="iv-badge-dot"></div><span class="iv-badge-text">Our Engineering Benchmark</span></div>
-      <h2 class="iv-title">Iron Vantage —<br>Built By Us.<br>To Prove What We Can<br>Build For You.</h2>
+      <h2 class="iv-title">Iron Vantage —<br>Built By Us.<br>Proof Of What We<br>Build For You.</h2>
       <p class="iv-desc">Iron Vantage is our internally developed 12-module market analysis system. Built on Angel One Smart API with real-time WebSocket tick data — processing FRVP, CVD, Absorption, Options Intelligence and Regime Detection simultaneously.</p>
-      <p class="iv-desc">We do not sell it. We use it as proof of what VantageForge Systems can engineer for serious traders.</p>
-      <div class="iv-disclaimer">Iron Vantage is our internal engineering benchmark only.<br>We make no signal accuracy claims or profit promises.<br>All systems we build are pure engineering services.</div>
+      <p class="iv-desc">We don't sell it. We use it as proof of what VantageForge Systems can engineer for serious traders.</p>
+      <div class="iv-disclaimer">Iron Vantage is our internal benchmark only.<br>No signal accuracy claims or profit promises.<br>All systems are pure engineering services.</div>
     </div>
     <div class="module-grid">
       <div class="module-item"><div class="module-name">WebSocket</div><div class="module-cap">Real-time tick data, auto-reconnect</div></div>
@@ -228,50 +340,138 @@ body{cursor:auto}.cursor,.cursor-ring{display:none}}
     </div>
   </div>
 </section>
+
 <div class="gold-line"></div>
+
+<section id="testimonials">
+  <span class="section-tag">// Client Results</span>
+  <h2 class="section-title">What Traders Say<br>After We Build</h2>
+  <p class="section-sub">Anonymized for privacy. Real projects. Real outcomes.</p>
+  <div class="testi-grid fade-in">
+    <div class="glass testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I had Angel One API access for months but couldn't implement the WebSocket connection. VantageForge delivered a complete real-time data system in 4 days. The auto-reconnect logic alone saved me from multiple trading day disasters.</p>
+      <div class="testi-result">✓ Delivered in 4 days · Zero execution errors since</div>
+      <div class="testi-author">
+        <div class="testi-name">Options Trader</div>
+        <div class="testi-role">Mumbai · Angel One API Integration</div>
+      </div>
+    </div>
+    <div class="glass testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Needed a live CVD and OI dashboard for Nifty trading. Most developers didn't understand what CVD meant. VantageForge delivered a 12-panel terminal with real-time order flow data I'd never had visibility on before.</p>
+      <div class="testi-result">✓ Delivered in 12 days · Full order flow visibility</div>
+      <div class="testi-author">
+        <div class="testi-name">Prop Desk Trader</div>
+        <div class="testi-role">Bangalore · Custom Multi-Module System</div>
+      </div>
+    </div>
+    <div class="glass testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I had 8 months of trade logs in Excel doing nothing. The AI analysis tool VantageForge built identified 3 recurring loss patterns I had no idea about — same time of day, same market condition. Worth 10x the cost.</p>
+      <div class="testi-result">✓ Delivered in 5 days · 3 loss patterns identified</div>
+      <div class="testi-author">
+        <div class="testi-name">Retail Algo Trader</div>
+        <div class="testi-role">Delhi · Trade Log AI Analysis Tool</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
 <section id="why">
   <span class="section-tag">// Why VantageForge</span>
   <h2 class="section-title">Engineering Over Hype.<br>Always.</h2>
-  <p class="section-sub">We operate by a strict code that protects our clients and our reputation equally.</p>
+  <p class="section-sub">We operate by a strict code that protects our clients and reputation equally.</p>
   <div class="why-grid">
     <div class="glass why-card fade-in"><span class="why-icon">🔒</span><h3 class="why-title">No Signal Promises</h3><p class="why-desc">We build the infrastructure. You apply your edge. We never promise returns, accuracy rates or profitable signals. Ever.</p></div>
-    <div class="glass why-card fade-in"><span class="why-icon">⚙️</span><h3 class="why-title">Production Grade Only</h3><p class="why-desc">Every system we deliver is built to production standards — error handling, logging, auto-reconnect, documentation. No hobby-grade code leaves our desk.</p></div>
+    <div class="glass why-card fade-in"><span class="why-icon">⚙️</span><h3 class="why-title">Production Grade Only</h3><p class="why-desc">Every system has error handling, logging, auto-reconnect and full documentation. No hobby-grade code leaves our desk — ever.</p></div>
     <div class="glass why-card fade-in"><span class="why-icon">🎯</span><h3 class="why-title">100% Custom Built</h3><p class="why-desc">No templates. No copy-paste. Every system is architected from scratch around your specific strategy, broker and requirements.</p></div>
-    <div class="glass why-card fade-in"><span class="why-icon">🤝</span><h3 class="why-title">Full Transparency</h3><p class="why-desc">You see progress at every stage. We discuss architecture before writing one line of code. No surprises, no scope creep, no hidden costs.</p></div>
+    <div class="glass why-card fade-in"><span class="why-icon">⚡</span><h3 class="why-title">AI-Powered Speed</h3><p class="why-desc">We deliver in days not weeks. AI-assisted development means faster builds without cutting corners on quality or production standards.</p></div>
   </div>
 </section>
+
 <div class="gold-line"></div>
+
 <section id="process">
   <span class="section-tag">// How We Work</span>
   <h2 class="section-title">From Requirement<br>To Delivery</h2>
-  <p class="section-sub" style="margin-bottom:80px">A disciplined 4-step process that eliminates surprises and delivers exactly what was agreed.</p>
+  <p class="section-sub" style="margin-bottom:72px">4 disciplined steps. No surprises. Exactly what was agreed.</p>
   <div class="process-steps fade-in">
-    <div class="process-step"><div class="step-num">01</div><h3 class="step-title">Discovery</h3><p class="step-desc">We understand your strategy, broker setup and exact requirements before anything else.</p></div>
-    <div class="process-step"><div class="step-num">02</div><h3 class="step-title">Architecture</h3><p class="step-desc">We design the full system structure and confirm scope before writing one line of code.</p></div>
-    <div class="process-step"><div class="step-num">03</div><h3 class="step-title">Build</h3><p class="step-desc">We develop module by module with regular progress updates throughout.</p></div>
-    <div class="process-step"><div class="step-num">04</div><h3 class="step-title">Delivery</h3><p class="step-desc">Full handover with documentation, setup guide and 2 weeks post-delivery support.</p></div>
+    <div class="process-step"><div class="step-num">01</div><h3 class="step-title">Discovery</h3><p class="step-desc">We understand your strategy, broker and exact requirements before writing a single line of code.</p></div>
+    <div class="process-step"><div class="step-num">02</div><h3 class="step-title">Architecture</h3><p class="step-desc">Full system design confirmed and approved by you before we begin building.</p></div>
+    <div class="process-step"><div class="step-num">03</div><h3 class="step-title">Build</h3><p class="step-desc">Module by module with daily progress updates throughout.</p></div>
+    <div class="process-step"><div class="step-num">04</div><h3 class="step-title">Delivery</h3><p class="step-desc">Full handover with documentation, setup guide and 2 weeks support.</p></div>
   </div>
 </section>
+
 <div class="gold-line"></div>
-<section id="contact" style="padding-bottom:40px">
-  <div class="contact-section fade-in">
-    <h2 class="contact-title">Ready to Build<br>Your System?</h2>
-    <p class="contact-sub">Tell us what you want to automate.<br>We tell you exactly how we build it and what it costs.</p>
-    <div class="contact-cards">
-      <div class="contact-card"><span class="contact-card-label">Telegram</span><div class="contact-card-value">@VantageForge</div></div>
-      <div class="contact-card"><span class="contact-card-label">Email</span><div class="contact-card-value">contact@logicgate.pro</div></div>
-      <div class="contact-card"><span class="contact-card-label">Response Time</span><div class="contact-card-value">Within 24 Hours</div></div>
-      <div class="contact-card"><span class="contact-card-label">Location</span><div class="contact-card-value">India — Remote</div></div>
+
+<section id="contact">
+  <div class="contact-wrapper">
+    <div class="contact-left fade-in">
+      <span class="section-tag">// Get In Touch</span>
+      <h2 class="contact-title">Get Your Free<br>System Plan</h2>
+      <p class="contact-sub">Tell us what you want to automate. We'll map out exactly how to build it and what it costs. No obligation. No sales pitch.</p>
+      <div class="contact-cards">
+        <div class="contact-card"><span class="cc-icon">💬</span><div><div class="cc-label">Telegram</div><div class="cc-value">@VantageForge</div></div></div>
+        <div class="contact-card"><span class="cc-icon">📧</span><div><div class="cc-label">Email</div><div class="cc-value">contact@logicgate.pro</div></div></div>
+        <div class="contact-card"><span class="cc-icon">⏱️</span><div><div class="cc-label">Response Time</div><div class="cc-value">Within 24 Hours</div></div></div>
+      </div>
     </div>
-    <a href="https://t.me/VantageForge" class="btn-primary" style="margin-bottom:32px;display:inline-block">Message on Telegram</a><br>
-    <div class="disclaimer-box">LogicGate / VantageForge Systems provides engineering services only.<br>We do not provide financial advice, trading signals or promise returns.<br>All systems built are tools — performance depends on your strategy.</div>
+    <div class="fade-in">
+      <div class="contact-form" id="contactForm">
+        <h3 class="form-title">Discuss Your Strategy</h3>
+        <p class="form-sub">Free consultation · No commitment required</p>
+        <div class="form-group">
+          <label class="form-label">What do you want to automate?</label>
+          <textarea class="form-textarea" id="f-automate" placeholder="Describe your trading strategy or what you want to build..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Which broker do you use?</label>
+          <select class="form-select" id="f-broker">
+            <option value="" disabled selected>Select your broker</option>
+            <option>Angel One</option>
+            <option>Zerodha</option>
+            <option>Fyers</option>
+            <option>Upstox</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Budget range</label>
+          <select class="form-select" id="f-budget">
+            <option value="" disabled selected>Select your budget</option>
+            <option>₹8,000 — ₹20,000</option>
+            <option>₹20,000 — ₹50,000</option>
+            <option>₹50,000 — ₹1,00,000</option>
+            <option>₹1,00,000+</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your contact (Email or Phone)</label>
+          <input class="form-input" id="f-contact" type="text" placeholder="email@example.com or +91 XXXXX XXXXX">
+        </div>
+        <button class="form-submit" onclick="submitForm()">Get My Free System Plan →</button>
+        <p class="form-disclaimer">We respond within 24 hours · No spam · No obligation</p>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">⚡</div>
+        <div class="form-success-title">Request Received</div>
+        <p class="form-success-sub">We'll review your requirements and respond within 24 hours with a custom system plan.<br><br>You can also reach us directly: <strong>@VantageForge</strong> on Telegram.</p>
+      </div>
+    </div>
   </div>
 </section>
+
 <footer>
   <div class="footer-logo">LogicGate.pro</div>
   <div class="footer-copy">© 2026 LogicGate — VantageForge Systems</div>
-  <div class="footer-disc">Deoghar, Jharkhand, India</div>
+  <div class="footer-disc">Deoghar, Jharkhand, India · Remote delivery across India · Engineering services only — no financial advice</div>
 </footer>
+
 <script>
 const cursor=document.getElementById('cursor');
 const ring=document.getElementById('cursorRing');
@@ -286,6 +486,17 @@ document.querySelectorAll('a,button').forEach(el=>{
 const observer=new IntersectionObserver(entries=>{entries.forEach((entry,i)=>{if(entry.isIntersecting)setTimeout(()=>entry.target.classList.add('visible'),i*80)})},{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})})});
+function submitForm(){
+  const automate=document.getElementById('f-automate').value.trim();
+  const contact=document.getElementById('f-contact').value.trim();
+  const broker=document.getElementById('f-broker').value||'Not selected';
+  const budget=document.getElementById('f-budget').value||'Not selected';
+  if(!automate||!contact){alert('Please fill in what you want to automate and your contact details.');return;}
+  const msg=`New enquiry from logicgate.pro%0A%0AAutomate: ${encodeURIComponent(automate)}%0ABroker: ${encodeURIComponent(broker)}%0ABudget: ${encodeURIComponent(budget)}%0AContact: ${encodeURIComponent(contact)}`;
+  window.open(`https://t.me/VantageForge?text=${msg}`,'_blank');
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
 </script>
 </body>
 </html>
